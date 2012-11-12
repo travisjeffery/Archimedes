@@ -221,6 +221,31 @@ describe(@"inverted rectangles", ^{
 	});
 });
 
+describe(@"CGRectSetRightSpace", ^{
+    it(@"should return a rectange whose right edge is of given distance from a containing rectangle's right edge", ^{
+        CGRect rect = CGRectMake(0.0f, 0.0f, 5.0f, 100.0f);
+        CGRect containingRect = CGRectMake(0.0f, 0.0f, 100.0f, 100.0f);
+        
+        CGRect expectedResult = CGRectMake(90.0f, 0.0f, 5.0f, 100.0f);
+        
+        CGRect result = CGRectSetRightSpace(containingRect, rect, 5.0f);
+        expect(result).to.equal(expectedResult);
+    });
+});
+
+describe(@"CGRectSetBottomSpace", ^{
+    it(@"should return a rectange whose bottom edge is of given distance from a containing rectangle's bottom edge", ^{
+        CGRect rect = CGRectMake(0.0f, 0.0f, 100.0f, 5.0f);
+        CGRect containingRect = CGRectMake(0.0f, 0.0f, 100.0f, 100.0f);
+        
+        CGRect expectedResult = CGRectMake(0.0f, 90.0f, 100.0f, 5.0f);
+        
+        CGRect result = CGRectSetBottomSpace(containingRect, rect, 5.0f);
+        expect(result).to.equal(expectedResult);
+    });
+});
+
+
 describe(@"CGRectWithSize", ^{
 	it(@"should return a rectangle with a valid size", ^{
 		CGRect rect = CGRectWithSize(CGSizeMake(20, 40));

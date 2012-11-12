@@ -129,6 +129,14 @@ CGRect CGRectMakeInverted(CGRect containingRect, CGFloat x, CGFloat y, CGFloat w
 // rect           - The rectangle to vertically flip within `containingRect`.
 CGRect CGRectInvert(CGRect containingRect, CGRect rect);
 
+// Returns a rectange with an origin such that the space between its rightmost
+// point, and the container rectangle's rightmost point is of given size.
+CGRect CGRectSetRightSpace(CGRect containingRect, CGRect rect, CGFloat rightSpace);
+
+// Returns a rectange with an origin such that the space between its bottommost
+// point, and the container rectangle's bottommost point is of given size.
+CGRect CGRectSetBottomSpace(CGRect containingRect, CGRect rect, CGFloat bottomSpace);
+
 // Returns a rectangle with an origin of `CGPointZero` and the given size.
 CGRect CGRectWithSize(CGSize size);
 

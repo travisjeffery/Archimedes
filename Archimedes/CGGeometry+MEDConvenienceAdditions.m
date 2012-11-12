@@ -97,6 +97,14 @@ BOOL CGRectEqualToRectWithAccuracy(CGRect rect, CGRect rect2, CGFloat epsilon) {
 	return CGPointEqualToPointWithAccuracy(rect.origin, rect2.origin, epsilon) && CGSizeEqualToSizeWithAccuracy(rect.size, rect2.size, epsilon);
 }
 
+CGRect CGRectSetRightSpace(CGRect containingRect, CGRect rect, CGFloat rightSpace) {
+    return CGRectMake(CGRectGetWidth(containingRect) - (CGRectGetWidth(rect) + rightSpace), CGRectGetMinY(rect), CGRectGetWidth(rect), CGRectGetHeight(rect));
+}
+
+CGRect CGRectSetBottomSpace(CGRect containingRect, CGRect rect, CGFloat bottomSpace) {
+    return CGRectMake(CGRectGetMinX(rect), CGRectGetHeight(containingRect) - (CGRectGetHeight(rect) + bottomSpace), CGRectGetWidth(rect), CGRectGetHeight(rect));
+}
+
 CGRect CGRectWithSize(CGSize size) {
 	return CGRectMake(0, 0, size.width, size.height);
 }
